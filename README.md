@@ -303,9 +303,7 @@ only on the title slide. The supplied sample logo is fictional.
 
 Luma grew out of a desire for a simple, readable, and reusable presentation
 template for lectures and talks. Suggestions, bug reports, and contributions
-are welcome.
-
-- **Email:** [4sarathbabu@gmail.com](mailto:4sarathbabu@gmail.com)
+are welcome. Send your suggestions to `4sarathbabu@gmail.com`.
 
 ## Acknowledgments
 

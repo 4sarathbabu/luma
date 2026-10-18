@@ -15,11 +15,6 @@
 *.vrb
 *-blx.bib
 
-# Generated presentations (keep PDF figures)
-presentation.pdf
-presentation-handout.pdf
-presentation-notes.pdf
-
 # Editor and system files
 *~
 auto/

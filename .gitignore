@@ -1,0 +1,26 @@
+# LaTeX build files
+*.aux
+*.bbl
+*.bcf
+*.blg
+*.fdb_latexmk
+*.fls
+*.log
+*.nav
+*.out
+*.run.xml
+*.snm
+*.synctex.gz
+*.toc
+*.vrb
+*-blx.bib
+
+# Generated presentations (keep PDF figures)
+presentation.pdf
+presentation-handout.pdf
+presentation-notes.pdf
+
+# Editor and system files
+*~
+auto/
+.DS_Store

@@ -1,0 +1,257 @@
+% Main content file: edit this file for each new talk.
+% Build: make slides | make handout | make notes (see README.md).
+
+% Drivers set these flags before loading this file; direct compilation
+% is slides.
+\ifdefined\handoutbuild
+  \PassOptionsToClass{handout}{luma}
+\fi
+\documentclass{luma}
+% Add aspectratio=43 above if your projector needs the older 4:3 format.
+
+\usepackage{pgfpages}
+\usepackage{appendixnumberbeamer} % Backup slides do not inflate the main total.
+
+% Section dividers are configured by Luma and enabled by default.
+% \sectiondividersfalse % Disable them; use \sectiondividerstrue to restore.
+
+% Bibliography entries need to be included in the file
+% ``references.bib``
+\addbibresource{references.bib}
+
+
+\title[Short presentation title]{Your Presentation Title}
+\subtitle{Course name or talk subtitle}
+\author{Your Name}
+\institute{Department or Institution}
+\date{\today}
+
+%% -- TITLE-SLIDE LOGO -- %%
+% Fictional sample artwork: replace with your institute's official logo.
+% Beamer displays titlegraphic on the title slide only. Remove this to hide it.
+% \titlegraphic{%
+% \includegraphics[width=2cm,height=1.5cm,keepaspectratio]{figures/sample-institute-logo.pdf}%
+% }
+
+
+% Optional customization:
+% \definecolor{Navy}{HTML}{283593}
+\definecolor{Accent}{HTML}{00897B}
+% Highlight backgrounds: TealLight, BlueLight, AmberLight,
+% RoseLight, PurpleLight, GrayLight.
+
+% Example: \highlight[AmberLight]{Key assumption}
+% Use the class default font: Latin Modern Sans.
+
+% Progress bar: choose full-width (true) or small footer bar (false).
+% For a full progressbar at the bottom of slides
+% \fullwidthprogresstrue
+
+% For a progressbar near the slide number 
+\progresstrue
+% \progressfalse % Hide either bar while keeping the footer and slide
+% number.
+% \setbeamertemplate{footline}{} % Hide the entire footer instead.
+
+% Only the notes build includes private notes. Use Pympress to split the PDF.
+\setbeameroption{hide notes}
+\ifdefined\notesbuild
+  \setbeameroption{show notes on second screen=right}
+\fi
+% Optional printing layout: applies to handouts only.
+\ifdefined\handoutbuild
+  % \pgfpagesuselayout{2 on 1}[letterpaper,border shrink=5mm]
+\fi
+
+% Optional closing slide: replace placeholders, or set this to false.
+\newif\ifshowclosing
+\showclosingtrue
+
+
+%% Beginning of the document %%
+\begin{document}
+
+\maketitleslide
+
+\begin{frame}{Outline}
+  \tableofcontents
+\end{frame}
+
+\section{Introduction}
+% Short optional headings keep the footer compact:
+% \subsection[Short heading]{A longer subsection heading}
+
+\begin{frame}{Learning objectives}
+  By the end of this presentation, you should be able to:
+  % Each item appears on its own click and stays visible.
+  % Handout mode shows all items together by default.
+  \begin{itemize}
+    \item<1-> Explain the central idea in your own words.
+    \item<2-> Apply the method to a simple example.
+    \item<3-> Identify the assumptions and limitations.
+  \end{itemize}
+  \medskip
+  \uncover<4->{%
+    \alert{Guiding question:} What problem are we trying to solve?}
+
+  \note{
+    Introduce the motivation first.
+    Ask students for a familiar example.
+    Allow about two minutes for discussion.
+  }  
+\end{frame}
+
+
+\section{Main ideas}
+
+\subsection{The mean}
+\begin{frame}{An equation and its interpretation}
+  % Replace example-source with the key of your own entry in references.bib.
+  % Optional page locator: \sourcecite[p.~12]{example-source}.
+  The mean of $n$ observations is
+  \[
+    \highlight{\bar{x} = \frac{1}{n}\sum_{i=1}^{n} x_i.}
+  \]
+  \begin{definitionblock}{Key idea}
+    Each observation \highlight{contributes equally} to the average.
+  \end{definitionblock}
+  \begin{exampleblock}{Example}
+    For the observations $2$, $4$, and $6$, the mean is $4$\sourcecite{example-source}.
+  \end{exampleblock}
+\end{frame}
+
+
+\begin{frame}{Calculating the mean}
+  For the observations $2$, $4$, and $6$:
+  % \uncover reserves space so the equation does not move between steps.
+  \[
+    \begin{aligned}
+      \bar{x} &= \frac{1}{n}\sum_{i=1}^{n}x_i \\
+      \uncover<2->{&= \frac{2+4+6}{3}} \\
+      \uncover<3->{&= \highlight{4}}
+    \end{aligned}
+  \]
+  \uncover<4->{%
+    \alert{Interpretation:} The average of these three values is $4$.}
+\end{frame}
+
+\subsection{Visual examples}
+
+\begin{frame}{Text beside a figure}
+  \begin{columns}[T,onlytextwidth]
+    \begin{column}{0.46\textwidth}
+      \begin{itemize}
+        \item Introduce the figure and its context.
+        \item Explain the most important feature.
+        \item State what the audience should remember.
+      \end{itemize}
+    \end{column}
+    \begin{column}{0.48\textwidth}
+      % Empty path gives a placeholder. Replace it with figures/my-plot.pdf.
+      % Arguments: [image options]{file}[caption][source key][source wording].
+      \slidefigure[height=.34\textheight]{}[Replace with a descriptive caption.]
+      % \slidefigure{figures/my-plot.pdf}[Measured response][example-source][Adapted from]
+    \end{column}
+  \end{columns}
+\end{frame}
+
+%% -- SAMPLE TABLE -- %%
+% booktabs is loaded by the class. Use horizontal rules, without vertical lines.
+% Column alignment: l = left (labels), c = center, r = right (numbers).
+\begin{frame}{Comparing sets of observations}
+  \begin{table}
+    \centering
+    % These spacing changes stay local to this table.
+    \renewcommand{\arraystretch}{1.25}
+    \setlength{\tabcolsep}{12pt}
+    \begin{tabular}{@{}lcrr@{}}
+      \toprule
+      \textcolor{Navy}{\textbf{Set}} &
+      \textcolor{Navy}{\textbf{Observations}} &
+      \textcolor{Navy}{\textbf{Mean}} &
+      \textcolor{Navy}{\textbf{Median}} \\
+      \midrule
+      Original & $2,\ 4,\ 6$  & $4$  & $4$ \\
+      Modified & $2,\ 4,\ 24$ & $10$ & $4$ \\
+      \bottomrule
+    \end{tabular}
+    \caption{Illustrative data: replacing one observation changes the mean.}
+    % For external data, add a source below the table:
+    % Source\sourcecite{reference-key}.
+  \end{table}
+  \medskip
+  \highlight[TealLight]{The mean changes; the median stays the same.}
+\end{frame}
+
+\begin{frame}{Class discussion}
+  \begin{exerciseblock}{Try it yourself}
+  How does a single large observation affect the mean?
+  \medskip
+  \begin{enumerate}
+    \item Find the mean of $2$, $4$, and $6$.
+    \item Replace $6$ with $24$ and calculate it again.
+    \item Explain why the result changes.
+  \end{enumerate}
+  \end{exerciseblock}
+  % Show the question first, then reveal the answer on the next click.
+  \begin{exampleblock}<2->{Answer}
+    The mean increases from $4$ to $10$ because it uses every value.
+  \end{exampleblock}
+\end{frame}
+
+\begin{frame}{A common mistake}
+  \begin{exerciseblock}{Check the calculation}
+    A student computes $(2+4+6)/6$. Is this the mean?
+  \end{exerciseblock}
+  % The named teaching blocks support the same overlays as Beamer's blocks.
+  \begin{cautionblock}<2->{Count the observations}
+    Divide by the number of observations, not the largest value.
+    Here there are three observations, so the mean is $12/3=4$.
+  \end{cautionblock}
+\end{frame}
+
+\section{Summary}
+
+\begin{frame}{Key takeaways}
+  \begin{itemize}
+    \item Restate the main idea in one sentence.
+    \item Connect the example to the broader topic.
+    \item Suggest one question or next step to explore.
+  \end{itemize}
+  \bigskip
+  {\large\alert{Questions and discussion}}
+\end{frame}
+
+
+% Closing slide: keep this before the appendix so the audience can stop here.
+\ifshowclosing
+\begin{frame}{Questions and discussion}
+  \highlight{Replace with the one idea you want the audience to remember.}
+  \bigskip
+
+  Contact: \href{mailto:your.name@example.com}{your.name@example.com}\par
+  Materials: \url{https://example.com/talk}
+\end{frame}
+\fi
+
+% Backup slides start here; numbering restarts and progress is hidden.
+
+\appendix
+\progressfalse % To disable progressbar in appendix 
+\section{Backup slides}
+
+\begin{frame}{Additional derivation}
+  Extra equations or technical details.
+\end{frame}
+
+\begin{frame}{Additional results}
+  Supporting figures for questions.
+\end{frame}
+
+% Cite .bib entries with \sourcecite{key}; full references appear in footnotes.
+% If you also want a final reference list, uncomment the following:
+% \begin{frame}[allowframebreaks]{References}
+%   \printbibliography[heading=none]
+% \end{frame}
+
+\end{document}

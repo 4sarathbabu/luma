@@ -3,6 +3,19 @@
 A simple Beamer template for lectures and talks, with navy and teal colors,
 footnote references, speaker notes, and optional progress bars.
 
+## Download the latest PDFs
+
+The latest compiled PDFs are available from the
+[Latest PDFs release](https://github.com/4sarathbabu/luma/releases/tag/pdf-preview).
+Download them directly:
+
+- [Presentation slides](https://github.com/4sarathbabu/luma/releases/download/pdf-preview/presentation.pdf)
+- [Handout](https://github.com/4sarathbabu/luma/releases/download/pdf-preview/presentation-handout.pdf)
+- [Presenter notes](https://github.com/4sarathbabu/luma/releases/download/pdf-preview/presentation-notes.pdf)
+
+These downloads are replaced when a new preview is published. Source files are
+kept in the repository; generated PDFs are distributed through Releases.
+
 ## Quick start
 
 1. Keep the template files together in one folder.
@@ -57,6 +70,59 @@ pdflatex presentation.tex
 
 For another output mode, substitute its filename/basename in all four commands.
 This template uses **BibTeX**, not Biber.
+
+## Publish the latest PDFs to GitHub
+
+Run `make publish` to build the slides, handout, and presenter notes, then replace
+all three attachments on the existing **Latest PDFs** release. The notes PDF is
+also available to anyone who can access the release. Generated PDFs are ignored
+by Git; source figures remain tracked.
+
+### One-time setup on macOS
+
+Install GitHub CLI with Homebrew, then sign in:
+
+```sh
+brew install gh
+gh auth login
+```
+
+Choose GitHub.com and follow the browser login. If the `pdf-preview` release does
+not already exist, create it once:
+
+```sh
+gh release create pdf-preview --repo 4sarathbabu/luma --target main \
+  --title "Latest PDFs" \
+  --notes "Current slide, handout, and presenter-note previews. Attachments are replaced when updated."
+```
+
+Use an editable release: immutable releases cannot have their assets replaced.
+
+### Update the downloads
+
+```sh
+make publish
+```
+
+The target checks authentication and release availability, builds all three PDFs, and
+uploads only after a successful build. Same-name attachments are replaced with
+`--clobber`. Replacement deletes an old attachment before uploading the new one;
+if an upload fails, rerun `make publish` to restore the download.
+
+- [Download slides](https://github.com/4sarathbabu/luma/releases/download/pdf-preview/presentation.pdf)
+- [Download handout](https://github.com/4sarathbabu/luma/releases/download/pdf-preview/presentation-handout.pdf)
+- [Download presenter notes](https://github.com/4sarathbabu/luma/releases/download/pdf-preview/presentation-notes.pdf)
+
+These links stay the same after updates. Publishing does not commit or push
+source changes, and it does not move the release tag. The release's automatic
+source archives refer to that tag, while these PDF attachments are rolling previews.
+Previously committed PDFs remain in Git history.
+
+For a different repository or release tag:
+
+```sh
+make publish REPO=YOUR_USERNAME/YOUR_REPO RELEASE_TAG=pdf-preview
+```
 
 ## Where to make changes
 
@@ -294,7 +360,7 @@ only on the title slide. The supplied sample logo is fictional.
 - [ ] Replace sample content, bibliography entries, contact details, and links.
 - [ ] Check figure labels, equations, footnotes, and long footer titles.
 - [ ] Review reveals and the combined handout, especially replacement content.
-- [ ] Share the audience or handout PDF, not the private notes PDF.
+- [ ] Review speaker notes before publishing; `make publish` uploads the notes PDF too.
 - [ ] Test Pympress and the projector with extended displays.
 
 ## Developer and contact

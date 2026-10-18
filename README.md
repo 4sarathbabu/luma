@@ -305,7 +305,7 @@ Luma grew out of a desire for a simple, readable, and reusable presentation
 template for lectures and talks. Suggestions, bug reports, and contributions
 are welcome.
 
-- **Email:** [your.name@example.com](mailto:your.name@example.com)
+- **Email:** [4sarathbabu@gmail.com](mailto:4sarathbabu@gmail.com)
 
 ## Acknowledgments
 

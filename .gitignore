@@ -19,3 +19,8 @@
 *~
 auto/
 .DS_Store
+
+# Generated presentation PDFs
+/presentation.pdf
+/presentation-handout.pdf
+/presentation-notes.pdf

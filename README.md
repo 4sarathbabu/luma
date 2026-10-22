@@ -1,9 +1,13 @@
 # Luma — A Simple LaTeX Beamer Presentation Template
 
+<p align="center">
+  <img src="assets/luma-icon.png" alt="Luma icon: a navy L with teal folded corners" width="128">
+</p>
+
 A simple Beamer template for lectures and talks, with navy and teal colors,
 footnote references, speaker notes, and optional progress bars.
 
-## Download the latest PDFs
+## 📥 Download the latest PDFs
 
 The latest compiled PDFs are available from the
 [Latest PDFs release](https://github.com/4sarathbabu/luma/releases/tag/pdf-preview).
@@ -16,7 +20,7 @@ Download them directly:
 These downloads are replaced when a new preview is published. Source files are
 kept in the repository; generated PDFs are distributed through Releases.
 
-## Quick start
+## 🚀 Quick start
 
 1. Keep the template files together in one folder.
 2. Edit **`presentation.tex`**: replace the title, author, institution, and sample slides.
@@ -35,7 +39,7 @@ sharing your presentation.
 **Requirements:** a LaTeX installation with pdfLaTeX, BibTeX, latexmk, Beamer,
 Latin Modern, booktabs, biblatex, pgfpages, and appendixnumberbeamer.
 
-## Choose an output
+## 📄 Choose an output
 
 You can build all versions from the same slide content—no preamble edits needed.
 
@@ -71,7 +75,7 @@ pdflatex presentation.tex
 For another output mode, substitute its filename/basename in all four commands.
 This template uses **BibTeX**, not Biber.
 
-## Where to make changes
+## 📁 Where to make changes
 
 | File | Purpose |
 | --- | --- |
@@ -86,7 +90,7 @@ This template uses **BibTeX**, not Biber.
 For a new talk, copy the folder and edit `presentation.tex`. The two driver
 files load it automatically; you do not need to copy content into them.
 
-## Common settings
+## ⚙️ Common settings
 
 Put these settings in the **preamble** of `presentation.tex`, before
 `\begin{document}`. Enable the choice you want and comment out conflicting settings.
@@ -143,7 +147,7 @@ Uncomment the layout inside the existing handout conditional:
 
 Use `a4paper` if preferred. This affects the handout build only.
 
-## Reveals and speaker notes
+## 🎤 Reveals and speaker notes
 
 ### Reveal content step by step
 
@@ -203,7 +207,7 @@ Place extra material after the conclusion:
 The template loads `appendixnumberbeamer` to separate backup numbering from the
 main slide total. Backup slides are still included in handouts.
 
-## Highlights and blocks
+## 💡 Highlights and blocks
 
 ### Highlight text or an equation
 
@@ -248,7 +252,7 @@ Use `\textcolor{Purple}{Important result}` for colored text, or a tint such as
 
 The title is required. Omit `<2->` to show the block immediately.
 
-## Figures, tables, and references
+## 📊 Figures, tables, and references
 
 ### Insert a figure
 
@@ -301,7 +305,7 @@ list is optional; see the commented example at the end of `presentation.tex`.
 Put this in the preamble and use the actual filename of your logo. It appears
 only on the title slide. The supplied sample logo is fictional.
 
-## Before presenting
+## ✅ Before presenting
 
 - [ ] Run `make all`; check for undefined citations or overfull boxes.
 - [ ] Replace sample content, bibliography entries, contact details, and links.
@@ -310,7 +314,7 @@ only on the title slide. The supplied sample logo is fictional.
 - [ ] Review speaker notes before publishing; `make publish` uploads the notes PDF too.
 - [ ] Test Pympress and the projector with extended displays.
 
-## Developer and contact
+## 👤 Developer and contact
 
 **Developed and maintained by Sarath Babu.**
 
@@ -318,13 +322,13 @@ Luma grew out of a desire for a simple, readable, and reusable presentation
 template for lectures and talks. Suggestions, bug reports, and contributions
 are welcome. Send your suggestions to `4sarathbabu@gmail.com`.
 
-## Acknowledgments
+## 🤝 Acknowledgments
 
 Thank you to ChatGPT by OpenAI for assistance with developing and refining
 the template, exploring design choices, and preparing the documentation.
 Luma also builds on the work of the LaTeX, Beamer, and package maintainers.
 
-## License
+## 📜 License
 
 Copyright (C) 2026 Sarath Babu.
 
